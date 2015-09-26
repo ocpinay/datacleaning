@@ -57,9 +57,9 @@ These files were read into the following data frames:
 
 1. Column names for activityLabels data frame was changed to "V1" and "Activity" using colnames
 2. To merge the yTrain data frame with activityLabels data frame:
-	2.a. Change the column name of subject to "V1" using rename from the dplyr package and assign it to subject70
-	2.b. Combine yTrain with subject70 using cbind and assign this to trainSubY
-	2.c. Combine trainSubY and activityLabels using the "V1" column by using merge from the dplyr package and assign this to trainSubYAct
+2.a. Change the column name of subject to "V1" in subjectTrain using rename from the dplyr package and assign it to subject70
+2.b. Combine yTrain with subject70 using cbind and assign this to trainSubY
+2.c. Combine trainSubY and activityLabels using the "V1" column by using merge from the dplyr package and assign this to trainSubYAct
 3. Use the 2nd column of the features data frame to give descriptive column names to xTrain using colnames
 4. Combine the transformed yTrain, trainSubYAct, with xTrain by using cbind and assign this to trainSubXY
 5. Eliminate the first column of trainSubXY by subsetting and assign this to trainSubXYFull
@@ -67,19 +67,17 @@ These files were read into the following data frames:
 #### Combining the Test Data Frames with Descriptive Activity and Variable Names
 
 1. To merge the yTest data frame with activityLabels data frame used in the previous process:
-	1.a. Change the column name of subject to "V1" using rename from the dplyr package and assign it to subject30
-	1.b. Combine yTest with subject30 using cbind and assign this to testSubY
-	1.c. Combine testSubY and activityLabels using the "V1" column by using merge from the dplyr package and assign this to testSubYAct
+1.a. Change the column name of subject to "V1" using rename from the dplyr package and assign it to subject30
+1.b. Combine yTest with subject30 using cbind and assign this to testSubY
+1.c. Combine testSubY and activityLabels using the "V1" column by using merge from the dplyr package and assign this to testSubYAct
 3. Use the 2nd column of the features data frame to give descriptive column names to xTest using colnames
 4. Combine the transformed yTest, testSubYAct, with xTest by using cbind and assign this to testSubXY
 5. Eliminate the first column of testSubXY by subsetting and assign this to testSubXYFull
 
 #### Extracting only the Measurements on the Mean and Standard Deviation for Each Measurement
 
-1. Use select(trainSubXYFull, contains("subject"), contains("Activity"), contains("mean"), contains("std")) to extract only the mean and 
-    standard deviation of each measurement of the transformed training data set then assign it to trainSubXYSet.
-2. Use select(testSubXYFull, contains("subject"), contains("Activity"), contains("mean"), contains("std")) to extract only the mean and 
-    standard deviation of each measurement of the transformed test data set then assign it to testSubXYSet.
+1. Use select(trainSubXYFull, contains("subject"), contains("Activity"), contains("mean"), contains("std")) to extract only the mean and standard deviation of each measurement of the transformed training data set then assign it to trainSubXYSet.
+2. Use select(testSubXYFull, contains("subject"), contains("Activity"), contains("mean"), contains("std")) to extract only the mean and standard deviation of each measurement of the transformed test data set then assign it to testSubXYSet.
 
 #### Combining the transformed Test and Training Data Frames
 
